@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& arr) {
+        unordered_set<int> s;
+        for(int x : arr) {
+            if(x>0) {
+                s.insert(x);
+            }
+        }
+        int i = 1;
+        while(s.count(i)) {
+            i++;
+        }
+        return i;
+    }
+};
