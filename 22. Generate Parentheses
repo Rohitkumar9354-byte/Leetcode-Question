@@ -1,0 +1,16 @@
+class Solution {
+public:
+    void generated(string s, int opening, int closing, int n, vector<string>& ans) {
+        if(closing == n) {
+            ans.push_back(s);
+            return;
+        }
+       if(opening < n) generated(s+"(", opening+1, closing, n, ans);
+       if(closing < opening) generated(s+")", opening, closing+1, n, ans);
+    }
+    vector<string> generateParenthesis(int n) {
+        vector<string> ans;
+        generated("",0,0,n,ans);
+        return ans;
+    }
+};
